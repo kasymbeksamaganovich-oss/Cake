@@ -1,0 +1,196 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fff5f8;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+.header {
+    text-align: center;
+    background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(255, 117, 140, 0.3);
+}
+
+.main-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    flex: 1;
+    min-width: 340px;
+}
+
+h3 {
+    color: #d81b60;
+    border-bottom: 2px solid #fce4ec;
+    padding-bottom: 8px;
+}
+
+.cake-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.cake-option {
+    border: 2px solid #eee;
+    border-radius: 10px;
+    padding: 12px;
+    cursor: pointer;
+    text-align: center;
+    transition: 0.2s;
+}
+
+.cake-option.active {
+    border-color: #d81b60;
+    background-color: #fce4ec;
+    font-weight: bold;
+}
+
+.cake-1 { border-top: 5px solid #ffb74d; }
+.cake-2 { border-top: 5px solid #5d4037; }
+.cake-3 { border-top: 5px solid #e53935; }
+.cake-4 { border-top: 5px solid #81c784; }
+
+.badge {
+    display: inline-block;
+    font-size: 11px;
+    background: #ffeb3b;
+    color: #333;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-top: 4px;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-top: 12px;
+    font-size: 14px;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.row-inputs {
+    display: flex;
+    gap: 10px;
+}
+
+.input-col {
+    flex: 1;
+}
+
+.checkbox-group {
+    background: #fafafa;
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 10px;
+    border: 1px solid #eee;
+}
+
+.checkbox-group label {
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 6px;
+}
+
+.checkbox-group input { 
+    width: auto; 
+}
+
+.promo-alert {
+    background: #e8f5e9;
+    border: 1px dashed #4caf50;
+    color: #2e7d32;
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 12px;
+    font-size: 14px;
+    display: none;
+}
+
+.total-box {
+    background: #fce4ec;
+    color: #ad1457;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 15px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    background: #d81b60;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+button:hover { 
+    background: #ad1457; 
+}
+
+.logic-step {
+    background: #f8f9fa;
+    border-left: 4px solid #d81b60;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.flow-node {
+    background: #fff;
+    border: 1px solid #d81b60;
+    padding: 8px;
+    border-radius: 6px;
+    text-align: center;
+    margin: 5px 0;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.arrow {
+    text-align: center;
+    font-weight: bold;
+    color: #d81b60;
+}
+
+#receipt {
+    display: none;
+    margin-top: 15px;
+    padding: 15px;
+    background: #fffde7;
+    border: 1px solid #fbc02d;
+    border-radius: 8px;
+    font-size: 14px;
+}

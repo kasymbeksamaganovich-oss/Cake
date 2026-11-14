@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Торт буйрутмасын моделдөө</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="header">
+    <h1>🎂 «Таттуу Кыял» — Торт буйрутмасын моделдөө</h1>
+    <p>Шарттуу логика, акциялар (2+1) жана динамикалык баа эсептөө модели</p>
+</div>
+
+<div class="main-grid">
+    <!-- 1-БӨЛҮК: МОДЕЛДӨӨ ЛОГИКАСЫ -->
+    <div class="card">
+        <h3>1. Буйрутманын математикалык жана логикалык модели</h3>
+        
+        <div class="logic-step">
+            <strong>Кирүүчү параметрлер:</strong> Торттун түрү, формасы, салмагы (кг), саны, кошулмалары жана жеткирүү түрү.
+        </div>
+        <div class="logic-step">
+            <strong>Бизнес-эреже №1 (Акция 2+1):</strong><br>
+            <code>ЭГЕР (Саны >= 2) АНДА "1 мини-торт БЕЛЕККЕ" кошулат.</code>
+        </div>
+        <div class="logic-step">
+            <strong>Бизнес-эреже №2 (Бекер жеткирүү):</strong><br>
+            <code>ЭГЕР (Торт == "Шоколаддуу Трюфель") АНДА Жеткирүү = 0 сом.</code>
+        </div>
+        <div class="logic-step">
+            <strong>Эсептөө формуласы:</strong><br>
+            <code>Жалпы баа = (1 кг баасы × Салмагы × Саны) + Кошулмалар + Жеткирүү</code>
+        </div>
+
+        <h4>Алгоритм схемасы:</h4>
+        <div class="flow-node">1. Кардар торттун түрүн жана формасын тандайт</div>
+        <div class="arrow">↓</div>
+        <div class="flow-node">2. Система салмагына жана кошулмаларына жараша бааны эсептейт</div>
+        <div class="arrow">↓</div>
+        <div class="flow-node">3. Шарттарды текшерүү (2+1 белек же Бекер жеткирүү)</div>
+        <div class="arrow">↓</div>
+        <div class="flow-node">4. Даяр чек жана өндүрүшкө тапшырма түзүү</div>
+    </div>
+
+    <!-- 2-БӨЛҮК: ТОРТ БУЙРУТМА БЕРҮҮ ФОРМАСЫ -->
+    <div class="card">
+        <h3>2. Торт буйрутма берүү формасы</h3>
+        
+        <label>1. Торттун түрүн тандаңыз (ар бири өзгөчө):</label>
+        <div class="cake-grid">
+            <div class="cake-option cake-1 active" onclick="selectCake(this, 'Балдуу (Медовик)', 800, false)">
+                🍯 Балдуу<br><small>800 сом/кг</small>
+            </div>
+            <div class="cake-option cake-2" onclick="selectCake(this, 'Шоколаддуу Трюфель', 1100, true)">
+                🍫 Трюфель<br><small>1100 сом/кг</small><br>
+                <span class="badge">🚚 Доставка бекер!</span>
+            </div>
+            <div class="cake-option cake-3" onclick="selectCake(this, 'Кызыл Бархат', 1000, false)">
+                🍓 Кызыл Бархат<br><small>1000 сом/кг</small>
+            </div>
+            <div class="cake-option cake-4" onclick="selectCake(this, 'Фисташка-Малина', 1300, false)">
+                🌿 Фисташка<br><small>1300 сом/кг</small>
+            </div>
+        </div>
+
+        <label for="shape">2. Торттун формасы:</label>
+        <select id="shape" onchange="calculate()">
+            <option value="0">⚪ Тегерек (Стандарт)</option>
+            <option value="150">⬜ Төрт бурчтук (+150 сом)</option>
+            <option value="250">❤️ Жүрөк формасында (+250 сом)</option>
+            <option value="400">👑 Эки кабаттуу (+400 сом)</option>
+        </select>
+
+        <div class="row-inputs">
+            <div class="input-col">
+                <label for="weight">3. Салмагы (кг):</label>
+                <input type="number" id="weight" value="1.5" step="0.5" min="1" max="10" oninput="calculate()">
+            </div>
+            <div class="input-col">
+                <label for="qty">4. Саны (даана):</label>
+                <input type="number" id="qty" value="1" min="1" max="10" oninput="calculate()">
+            </div>
+        </div>
+
+        <div class="checkbox-group">
+            <strong>5. Кошулмалар жана жасалгалоо:</strong>
+            <label><input type="checkbox" id="textSign" value="150" onchange="calculate()"> Туулган күн куттуктоо жазуусу (+150 сом)</label>
+            <label><input type="checkbox" id="berries" value="300" onchange="calculate()"> Жаңы мөмө-жемиштер менен кооздоо (+300 сом)</label>
+            <label><input type="checkbox" id="candles" value="100" onchange="calculate()"> Майрамдык шамдар топтому (+100 сом)</label>
+        </div>
+
+        <label for="delivery">6. Жеткирүү кызматы:</label>
+        <select id="delivery" onchange="calculate()">
+            <option value="200">Шаар ичинде жеткирүү (200 сом)</option>
+            <option value="0">Өзүм алып кетем (0 сом)</option>
+        </select>
+
+        <div id="giftAlert" class="promo-alert">
+            🎁 <strong>АКЦИЯ ИШТЕДИ:</strong> Сиз 2 же андан көп торт тандадыңыз! <strong>1 мини-торт БЕЛЕККЕ</strong> кошулду!
+        </div>
+        <div id="freeDeliveryAlert" class="promo-alert">
+            🚚 <strong>АКЦИЯ ИШТЕДИ:</strong> «Шоколаддуу Трюфель» тандалганы үчүн <strong>жеткирүү БЕКЕР!</strong>
+        </div>
+
+        <label for="client">Кардардын аты-жөнү:</label>
+        <input type="text" id="client" placeholder="Мисалы: Айгерим" required>
+
+        <div class="total-box">
+            Жалпы баасы: <span id="totalPrice">1400</span> сом
+        </div>
+
+        <button type="button" onclick="submitOrder()">Буйрутманы моделдөө жана тастыктоо</button>
+
+        <div id="receipt"></div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
